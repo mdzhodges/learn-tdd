@@ -328,4 +328,6 @@ describe('Verify retrieving author by an ID', () => {
         const authorId = await Author.getAuthorIdByName('Doe', 'John');
         expect(authorId).toBeNull();
     });
+
+
 });

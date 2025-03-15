@@ -17,7 +17,7 @@ Run coverage
 
 View coverage report in `coverage/lcov-report/index.html`
 
-The followung database scripts are not necessary. If you still need
+The following database scripts are not necessary. If you still need
 them for manual testing here they are:
 
 `$ npx ts-node insert_sample_data.ts "mongodb://127.0.0.1:27017/my_library_db"`
@@ -49,6 +49,10 @@ should be placed in `tests/authorService.test.ts`.
 
 Briefly explain a limitation of the tests in `tests/authorSchema.test.ts` in the space below.
 
+The limitation of the tests are that they are tightly coupled to the implementation of the author schema. It is tightly coupled because the tests are brittle.
+The tests are brittle because for example, if the implementation of the name field changes (eg: 'Doe, John', to 'John Doe'), then the tests will break even though
+both implementations are correct. In addition to this, the tests are tightly coupled to MongoDB, if the DB was changed, all the test will break due to the mocking of
+MongoDB methods. 
 
 
 ## Part 3
